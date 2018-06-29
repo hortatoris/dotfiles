@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# Prints how full the systems battery is as a percentage. 
+#
+# Author: clyde80
+# Website: https://github.com/clyde80
+# Updated on: February 06, 2017
+#
+batperc=$(acpi --battery | cut -d , -f 2)
+batperc=${batperc//"%"/""}
+echo "B:$batperc%"

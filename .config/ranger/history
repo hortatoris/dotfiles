@@ -1,0 +1,50 @@
+
+rename rapor_barret
+rename rapor_barret_reduction
+rename barret3k.tex
+rename paper_barret_reduction_3k
+rename rapor_zanoni_cube
+search /lat
+search bar
+search lat
+search code
+search has
+search _bo
+mkdir chp11
+search chp11
+touch alg.hs
+mkdir 4%_
+mkdir 45_barrett_3n
+45
+search 45
+touch Main.cpp
+touch barrett2.cpp barrett2.hpp barrett3.cpp barrett3.hpp
+rename barrett2.cpp
+rename barrett3.cpp
+rename barrett3.hpp
+touch barrett3.hpp
+touch barrett2.hpp
+touch barrett2.cpp
+touch helper.cpp
+touch helper.hpp
+mkdir 38_stack
+touch stack.cpp
+search sand
+open_with 
+find 
+search pdf
+mkdir PQ_notes
+w
+rename generics.report
+rename generics_report.tex
+search 
+mkdir 46_pq_denemeler
+search 46
+touch main.cpp
+rename vigenere.hs
+rename caesar.hs
+rename spacemacs.png
+search Git
+search Pro
+delete
+rename Documents

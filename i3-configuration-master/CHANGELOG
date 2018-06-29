@@ -1,0 +1,196 @@
+For older releases, go to:
+https://github.com/clyde80/i3-configuration/releases
+
+Logging started on November 08, 2016
+
+Changes in Minimal Red theme
+    - Date: February 07, 2017
+
+1. Changed main colors to Red, Orange and Black.
+
+2. Changed main font to "ypn envypn".
+    - This is a bitmap font. To use bitmap fonts in Firefox,
+      set gfx.font_rendering.fontconfig.fontlist.enabled to false in about:config.
+
+3. Changes to CMUS
+    - Removed some lines and highlighting.
+    - Changed status line for CMUS to display music selection as well as time.
+
+4. Changes to Scripts
+    - Changed PS1 in ~/.bashrc.
+        - Now displays as "user@host $PWD >> "
+    - Removed iconic characters from all scripts that are used in yabar.
+        - monitor_workspaces.py
+            - [#] denotes the focused workspace.
+            - <#> denotes the urgent workspace.
+            - # denotes a workspace number.
+        - getmusicstatus
+            - Thanks @johnfraney for fixing the "tag artistsort" bug.
+        - battery
+        - getwifinetwork
+            - Changed status for connected to "OK" and not connected to "NOT OK".
+        - getvolume
+            - S means speakers and H means headphones.
+    - Added condition in rrename.sh so it doesn't mess up your system.
+    - NOTE: To get older versions of these scripts without these changes,
+            see the file "/scripts/older_versions/Scripts.i3conf.v11.zip"
+
+5. Changes to Yabar configuration.
+    - Workspaces are now shown on the left.
+    - Increased size of music display area.
+    - Got rid of icons for date and time.
+
+5. Changes to VIM configuration
+    - Turned off line numbering for minimal purposes.
+    - Sort of organized the "minimal.vim" file.
+
+6. Changes to Firefox configuration
+    - Created Stylish theme for Firefox.
+        - Stylish theme for Turbo Download Manager will be made later (promise).
+    - Modified homepage.
+        - Got rid of buttons and made them links.
+        - Homepage content now displays in the middle of browser window.
+          No static values are used to try and do that now.
+
+7. Changes in i3 config file.
+    - Window borders are now 3px #161916.
+
+8. Changes to xfce4-terminal
+    - minimal.theme created.
+
+9. Changes to project
+    - Will start including the background image in repository.
+
+10. Changes to README.md
+    - Added link to "envypn" font.
+
+--------------    
+
+Changes in Japan Two theme
+    - Date: January 19, 2017
+
+1. Changed main colors to orange, light red, and kind of dark blue.
+2. Changed colors in CMUS.
+3. Add new terminal theme (japan_two.theme)
+    - Compressed dark.theme.
+4. Changed Yabar look to comply with main colors.
+5. Firefox:
+    - Firefox colors will NOT be updated later.
+    - New stylish theme is NOT being created for this theme.
+6. Change lightdm background photo.
+7. Updated ROFI to comply with main colors.
+8. Got rid of runrofi.sh
+    - Running Rofi is now handled in the i3 config file.
+    - Values for Rofi are set in the .Xresources file.
+9. Changed colors in top.
+10. This configuration uses Compton.
+
+    Changes for Date: January 24, 2017
+
+11. Added udev rules to repository.
+    - Added rule to autoconnect to HDMI display upon HDMI connect
+        - hdmi.rules
+12. Added script to add HDMI display upon HDMI connect.
+    - scripts/hdmi_autoconnect.sh
+12. Added script that can randomly rename a bunch of files.
+    - scripts/rrename.sh
+
+--------------    
+
+Changes in Dark theme
+    - Date: January 04, 2017
+
+1. Change main colors to beige, green, and red.
+2. Change colors in CMUS.
+3. Add new terminal theme (dark.theme).
+    - Compressed winter.theme.
+4. Changed yabar look to comply with main colors.
+5. Firefox:
+    - Previous current.css file is now compressed and renamed to winter.css.
+    - Changed colors in current.css to comply with main colors.
+    - Added Stylish CSS for Turbo Download Manager.
+6. Changed lightdm background photo.
+7. Updated ROFI to comply with main colors.
+8. Added support for MPD in scripts/getmusicstatus.
+    - Needs MPC to work.
+    - Changed icons used when displaying music status in yabar.
+9. Changed colors in top.
+10. This configuration does not use Compton.
+
+--------------    
+
+Changes in Winter theme
+    - Date: December 12, 2016
+
+1. Change main colors to black, white, and green.
+2. Change colors in CMUS.
+3. Add new terminal theme (winter.theme).
+    - Compressed other themes to clean up directory. Older configurations are now
+      located in /terminal_themes/older_themes.zip.
+4. Quit using i3status and started using yabar (/yabar).
+    - Added workspace monitoring script in yabar.
+    - Added other scripts that yabar may use in /scripts.
+    - Added yabar config file (/yabar/yabar.conf).
+5. Changed look and style of firefox homepage (stylesheet.css).
+    - All links are now buttons.
+    - Changed colors to green, white, and black.
+6. Added new stylish CSS file (winter.css)
+    - Compressed other CSS files to clean up directory. Older configurations are now
+      in zip archive located at /firefox-config/stylish-themes/older_themes.zip.
+7. Added a new vim colorscheme (vim/winter.vim).
+    - Compressed other vim colorschemes to clean up directory. Older configurations are
+      in a zip archive located at /vim/older_colorschemes.zip.
+8. Customized colors in top.
+9. Removed install.sh script because I don't like it.
+10. Added some stuff to .bashrc.
+11. Changed /scripts/vol file to play a different sound.
+    - It now plays dialog-warning.wav (original is dialog-warning.oga).
+12. Added /scripts/gifenc.
+    - Converts screen recording to gif.
+
+--------------    
+
+Changes in USA theme
+    - Date: November 23, 2016
+
+1. Changed main colors to red, white and blue.
+2. Changed colors in CMUS.
+3. Added new terminal theme (USA.theme)
+4. Changed colors in i3status bar.
+5. Changed look and style of Firefox homepage.
+    - Added separate file for styling homepage (stylesheet.css).
+        - This file may need to be modified based on device because it is hard coded to
+          my device.
+6. Added new stylish CSS file (USA.css).
+    - Fixed a few spots on the sheet (colors where colors aren't supposed to be).
+7. Added new vim colorscheme (USA.vim).
+8. Customized colors in top (process manager).
+9. Added custom backlight script that shows a notification displaying the screen brightness.
+
+--------------    
+
+Changes in Red and Yellow theme
+    - Date: November 09, 2016
+
+1. Changed main colors to yellow and red.
+2. Changed some colors in CMUS.
+3. Added new terminal theme (red-and-yellow.theme).
+4. Changed colors in i3status bar.
+5. Changed main colors of Firefox homepage.
+6. Added red-and-yellow.css (new stylish css file).
+
+--------------    
+
+Changes in Red, Orange and Black theme
+    - Date: November 08, 2016
+
+1. Changed main colors to orange and red.
+2. Changed background image to mountains.
+3. Added new terminal theme (Mountains.theme).
+4. Added icons with Font-Awesome to i3status bar for wifi, disk space, volume, and battery.
+5. Changed main colors to white, light gray, and dark gray.
+6. Added animations to Firefox home page search box and links.
+7. Changed colors on Firefox home page to red and orange.
+8. Added orange-red-black.css (newest Stylish CSS file).
+    
+--------------

@@ -1,0 +1,307 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+;#1e1e1e
+background = #282828   
+;background = #9a846d
+#background-alt = #444
+background-alt = #d3d3d3
+;foreground = ${xrdb:color7:#222} foreground = #AFAFAF
+;foreground = #B8BABA
+foreground = #ac9377
+foreground-alt = #9d973a
+;foreground-icon = #B8BABA
+foreground-icon = #ac9377
+;i3-background = #CC6666
+i3-background = #382c2f
+;underline = 
+;#B894B0
+;i3-background = #665059
+;primary = #0088cc
+primary = #bca282
+secondary = #b17a06
+alert = #9a846d
+
+[sizes]
+bar-width = 1906
+bar-height = 20
+
+bar-offset-x = 14
+bar-top-gap = 4
+bar-bottom-gap = 10
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[bar/example]
+wm-restack = i3
+ipc = true
+
+monitor = ${env:MONITOR:eDP1}
+bottom = false
+;width = 100%
+;height = 30
+width = ${sizes.bar-width}
+height = ${sizes.bar-height}
+;offset-x = 2%
+;offset-y = 100%
+radius = 1.2
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 0
+border-color = #00000000
+border-left-size = ${sizes.bar-offset-x}
+border-left-color = #00000000
+border-top-size = ${sizes.bar-top-gap}
+border-bottom-size = -4
+;-4
+
+padding-left = 0
+padding-right = 3
+
+module-margin-left = 0
+module-margin-right = 6
+
+;font-0 = FontAwesome5Free:style=Solid:pixelsize=8
+font-0 = Font Awesome:pixelsize=10;0
+font-1 = Source Code Pro:semibold:pixelsize=10
+font-2 = Source Code Pro:semibold:pixelsize=10
+
+modules-left = i3
+modules-center = mpd
+modules-right = xbacklight wlan battery volume date 
+
+;tray-position = center
+;tray-maxsize = 2000
+;tray-padding = 0
+;tray-transparent = true
+;tray-background = #121212
+
+;wm-restack = bspwm
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+  
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 3
+;label-mode-foreground = #CC6666
+;label-mode-foreground = #C5C8C6
+label-mode-background = ${colors.background}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+;label-focused-foreground = #000
+label-focused-background = ${colors.i3-background}
+;label-focused-underline = ${colors.underline}
+;label-focused-format-underline = #6C5F80
+label-focused-padding = 3
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+;label-unfocused-foreground = #616161
+label-unfocused-padding = 3
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+;label-visible-foreground = #616161
+;label-visible-background = ${self.label-focused-background}
+;label-visible-background = ${colors.background}
+;label-visible-underline = ${colors.underline}
+label-visible-padding = 3
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+;label-urgent-foreground = #CA2C2C
+;label-urgent-background = #CA2C2C
+label-urgent-padding = 3
+
+[module/mpd]
+type = internal/mpd
+format-online =  <label-song> » <label-time>
+label-offline = mpd-off
+label-song = %title%
+label-time = %elapsed% / %total%
+
+;icon-prev = 
+;icon-stop = 
+;icon-play = 
+;icon-pause = 
+;icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = 
+
+bar-width = 10
+bar-indicator = ╼
+bar-indicator-foreground = #c1a67e
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #c1a67e
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = #c1a67e
+label-foreground = #c1a67e
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected = <ramp-signal> %{F#9d973a} <label-connected>%{F-}
+;format-connected-underline = #9f78e1
+label-connected = %essid%
+
+;format-disconnected =
+format-disconnected = %{F#9d973a}<label-disconnected>%{F-}
+;format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 1
+format-prefix = "  " 
+format-prefix-foreground = #79665a
+;format-prefix-foreground = ${colors.foreground-icon}
+
+;date =  %a, %d/%m, %H:%M
+;date = %a %d %b, %H:%M
+date = %b %d, %H:%M
+;date-alt = " %Y-%m-%d"
+
+;time = %H:%M
+;time-alt = %H:%M:%S
+
+;format-underline = #0a6cf5
+
+label = %date%
+label-foreground = #79665a
+
+[module/volume]
+type = internal/volume
+format-volume = <label-volume>
+format-volume-prefix = "  "
+;format-volume-prefix = " "
+format-volume-prefix-foreground = ${colors.secondary}
+label-volume = %percentage%%
+label-volume-foreground = ${colors.secondary}
+;label-volume = %percentage%%
+
+;format-muted-prefix = " "
+format-muted-prefix = "  "
+format-muted-prefix-foreground = ${colors.secondary}
+label-muted-foreground = ${colors.secondary}
+label-muted = mute
+
+;bar-volume-width = 10
+;bar-volume-foreground-0 = #55aa55
+;bar-volume-foreground-1 = #55aa55
+;bar-volume-foreground-2 = #55aa55
+;bar-volume-foreground-3 = #55aa55
+;bar-volume-foreground-4 = #55aa55
+;bar-volume-foreground-5 = #f5a70a
+;bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.secondary}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> %{F#8e7766}<label-charging>%{F-}
+format-charging-foreground = #8e7766
+;format-charging-underline = #9d973a
+
+format-discharging = <ramp-capacity> %{F#8e7766}<label-discharging>%{F-}
+format-discharging-foreground = #8e7766
+;format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = #8e7766
+format-full-foreground = #8e7766
+;format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = #8e7766
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = #8e7766
+animation-charging-framerate = 1000
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+
+; vim:ft=dosini
+

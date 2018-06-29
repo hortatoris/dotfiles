@@ -1,0 +1,12 @@
+ set recolor "true"
+ set recolor-darkcolor "#A89984"
+ set recolor-lightcolor "#282828"
+
+# set recolor "true"
+# set recolor-lightcolor "#1e1e1e"
+# set recolor-darkcolor "#eed8c4"
+
+# set recolor "true"
+# set recolor-lightcolor "#fafafa"
+# set recolor-darkcolor "#555555"
+ 
